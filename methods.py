@@ -119,8 +119,4 @@ def createAvitoFeed() -> str :
 
                 print(products[product])
 
-                
-
-        
-
-createAvitoFeed()
+            
