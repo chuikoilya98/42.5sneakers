@@ -1,17 +1,21 @@
 from flask import Flask
 from flask import request
-from flask import send_file
+from flask import send_file, send_from_directory
 from methods import sendMessage
 import os.path as pt
+import os
 from io import BytesIO
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    info = pt.abspath('products.csv')
 
-    return info
+    if request.method == 'GET' and request.args.get('source') == 'oyandex':
+        path = os.getcwd()
+        return send_from_directory(path, 'avitoExport.xml')
+    else :
+        return 'Eternal Error'
 
 @app.route('/cloudparser', methods = ['GET'])
 def hook():
@@ -24,5 +28,5 @@ def hook():
     return 'success'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-    #app.run(debug=True)
+    #app.run(host='0.0.0.0')
+    app.run(debug=True)
