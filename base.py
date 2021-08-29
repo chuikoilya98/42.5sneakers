@@ -8,8 +8,12 @@ from io import BytesIO
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
+@app.route('/')
+def index() :
+    return 'hello world'
+
+@app.route('/products', methods=['GET'])
+def getDocs():
 
     if request.method == 'GET' and request.args.get('source') == 'oyandex':
         path = os.getcwd()
