@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 from flask import send_file, send_from_directory
 from methods import sendMessage
+from methods import createAvitoFeed
 import os.path as pt
 import os
 from io import BytesIO
