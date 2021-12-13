@@ -28,6 +28,8 @@ def hook():
     productsCount = request.args.get('productsCount')
 
     sendMessage(f'Выгрузка товаров ВК завершена, сегодня активно {productsCount} товаров. Стартуем сбор данных для Яндекс Объявлений. Ссылка на товар - {url}')
+    createAvitoFeed()
+    sendMessage('Выгрузка для Яндекс Объявлений готова')
 
     return 'success'
 
